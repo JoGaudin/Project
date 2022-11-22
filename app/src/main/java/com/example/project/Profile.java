@@ -11,7 +11,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 public class Profile extends AppCompatActivity {
 
-        String[] items =  {"Material","Design","Components","Android","5.0 Lollipop"};
+        String[] items =  {"Daily","Weekly","Monthly","Customize"};
         AutoCompleteTextView autoCompleteTxt;
         ArrayAdapter<String> adapterItems;
 
