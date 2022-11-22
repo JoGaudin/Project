@@ -11,7 +11,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 public class Profile extends AppCompatActivity {
 
-        String[] items =  {"Daily","Weekly","Monthly","Customize"};
+        String[] frequencies =  {"Daily","Weekly","Monthly","Customize"};
         AutoCompleteTextView autoCompleteTxt;
         ArrayAdapter<String> adapterItems;
 
@@ -22,7 +22,7 @@ public class Profile extends AppCompatActivity {
 
             autoCompleteTxt = findViewById(R.id.auto_complete_txt);
 
-            adapterItems = new ArrayAdapter<String>(this,R.layout.list_item,items);
+            adapterItems = new ArrayAdapter<String>(this,R.layout.list_item,frequencies);
             autoCompleteTxt.setAdapter(adapterItems);
 
             autoCompleteTxt.setOnItemClickListener(new AdapterView.OnItemClickListener() {
