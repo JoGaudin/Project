@@ -26,7 +26,8 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void openProfileActivity(){
-        Intent intent = new Intent(this, Profile.class);
+        Intent intent = new Intent(MainActivity.this, Profile_v2.class);
+        intent.putExtra("activityOne", "I am from the First Activity!!");
         startActivity(intent);
     }
 }
