@@ -7,6 +7,50 @@
     android:background="@color/bg"
     >
 
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <Button
+            android:id="@+id/big_frame"
+            android:layout_width="223dp"
+            android:layout_height="141dp"
+            android:backgroundTint="@color/grey"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.851"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.14" />
+
+        <EditText
+            android:id="@+id/budgetEdit"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:background="@drawable/inputbox"
+            android:fontFamily="sans-serif-medium"
+            android:inputType="numberDecimal"
+            android:minWidth="48dp"
+            android:minHeight="48dp"
+            android:textColor="@color/black"
+            tools:layout_editor_absoluteX="130dp"
+            tools:layout_editor_absoluteY="311dp" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <TextView
+        android:id="@+id/headTxt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="sans-serif-black"
+        android:text="Profile"
+        android:textColor="@color/black"
+        android:textSize="60px"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.046" />
+
     <TextView
         android:id="@+id/ageInput"
         android:layout_width="wrap_content"
@@ -21,29 +65,14 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.268" />
 
-    <TextView
-        android:textColor="@color/black"
-        android:fontFamily="sans-serif-black"
-        android:id="@+id/headTxt"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Profile"
-        android:textSize="60px"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.046" />
-
 
     <TextView
         android:id="@+id/userTxt"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:background="@drawable/titlebox"
         android:fontFamily="sans-serif-medium"
         android:text="Username :"
-        android:textColor="@color/white"
+        android:textColor="@color/black"
         android:textSize="40px"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -98,8 +127,7 @@
         app:layout_constraintVertical_bias="0.538" />
 
     <TextView
-        android:background="@drawable/titlebox"
-        android:textColor="@color/white"
+        android:textColor="@color/black"
         android:fontFamily="sans-serif-medium"
         android:id="@+id/firstNameTxt"
         android:layout_width="wrap_content"
@@ -114,8 +142,7 @@
         app:layout_constraintVertical_bias="0.184" />
 
     <TextView
-        android:background="@drawable/titlebox"
-        android:textColor="@color/white"
+        android:textColor="@color/black"
         android:fontFamily="sans-serif-medium"
         android:id="@+id/lastNameTxt"
         android:layout_width="wrap_content"
@@ -130,8 +157,7 @@
         app:layout_constraintVertical_bias="0.229" />
 
     <TextView
-        android:background="@drawable/titlebox"
-        android:textColor="@color/white"
+        android:textColor="@color/black"
         android:fontFamily="sans-serif-medium"
         android:id="@+id/ageTxt"
         android:layout_width="wrap_content"
@@ -144,23 +170,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.269" />
-
-    <EditText
-        android:textColor="@color/black"
-        android:fontFamily="sans-serif-medium"
-        android:id="@+id/budgetEdit"
-        android:background="@drawable/inputbox"
-        android:inputType="numberDecimal"
-        android:layout_width="150dp"
-        android:layout_height="wrap_content"
-        android:minWidth="48dp"
-        android:minHeight="48dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.456" />
 
     <Button
         android:id="@+id/addCategory"
@@ -219,18 +228,18 @@
         app:layout_constraintVertical_bias="0.714" />
 
     <TextView
-        android:textColor="@color/black"
-        android:fontFamily="sans-serif-medium"
         android:id="@+id/userInput"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:fontFamily="sans-serif-medium"
         android:text="aRandomGuy"
+        android:textColor="@color/black"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.828"
+        app:layout_constraintHorizontal_bias="0.782"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.14" />
+        app:layout_constraintVertical_bias="0.137" />
 
     <TextView
         android:id="@+id/firstNameInput"
