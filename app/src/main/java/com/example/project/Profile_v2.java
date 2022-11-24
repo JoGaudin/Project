@@ -9,6 +9,7 @@ import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.ListView;
+import android.widget.Spinner;
 import android.widget.Toast;
 
 public class Profile_v2 extends AppCompatActivity {
@@ -18,8 +19,8 @@ public class Profile_v2 extends AppCompatActivity {
     ListView listView;
 
     // Frequencies Dropdown Menu
+    Spinner spinner;
     String[] frequencies =  {"Daily","Weekly","Monthly","Customize"};
-    AutoCompleteTextView autoCompleteTxt;
     ArrayAdapter<String> adapterItems;
 
     @Override
@@ -28,17 +29,22 @@ public class Profile_v2 extends AppCompatActivity {
         setContentView(R.layout.activity_profile_v2);
 
         // Frequencies Dropdown Menu
-        autoCompleteTxt = findViewById(R.id.auto_complete_txt);
+        spinner = findViewById(R.id.spiinner);
 
-        adapterItems = new ArrayAdapter<String>(this,R.layout.list_item,frequencies);
-        autoCompleteTxt.setAdapter(adapterItems);
+        adapterItems = new ArrayAdapter<String>(Profile_v2.this,android.R.layout.simple_spinner_item,frequencies);
+        adapterItems.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spinner.setAdapter(adapterItems);
 
-        autoCompleteTxt.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+        spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int i, long l) {
+                String value = parent.getItemAtPosition(i).toString();
+                Toast.makeText(Profile_v2.this, value, Toast.LENGTH_SHORT).show();
+            }
 
             @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                String item = parent.getItemAtPosition(position).toString();
-                Toast.makeText(getApplicationContext(),"Item: "+item,Toast.LENGTH_SHORT).show();
+            public void onNothingSelected(AdapterView<?> adapterView) {
+
             }
         });
 
