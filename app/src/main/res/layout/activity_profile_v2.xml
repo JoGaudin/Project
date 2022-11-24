@@ -11,7 +11,6 @@
         android:id="@+id/ageInput"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:background="@drawable/inputbox"
         android:fontFamily="sans-serif-medium"
         android:text="21"
         android:textColor="@color/black"
@@ -38,13 +37,13 @@
 
 
     <TextView
-        android:background="@drawable/titlebox"
-        android:textColor="@color/white"
-        android:fontFamily="sans-serif-medium"
         android:id="@+id/userTxt"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:background="@drawable/titlebox"
+        android:fontFamily="sans-serif-medium"
         android:text="Username :"
+        android:textColor="@color/white"
         android:textSize="40px"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -150,6 +149,8 @@
         android:textColor="@color/black"
         android:fontFamily="sans-serif-medium"
         android:id="@+id/budgetEdit"
+        android:background="@drawable/inputbox"
+        android:inputType="numberDecimal"
         android:layout_width="150dp"
         android:layout_height="wrap_content"
         android:minWidth="48dp"
@@ -162,7 +163,21 @@
         app:layout_constraintVertical_bias="0.456" />
 
     <Button
-        android:id="@+id/saveButton"
+        android:id="@+id/addCategory"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:backgroundTint="@color/dark_button"
+        android:text="+ Add a Category"
+        android:textColor="@color/white"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.818" />
+
+    <Button
+        android:id="@+id/saveButton2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:backgroundTint="@color/white"
@@ -170,10 +185,10 @@
         android:textColor="@color/bg"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintHorizontal_bias="0.163"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.906" />
+        app:layout_constraintVertical_bias="0.963" />
 
     <Button
         android:id="@+id/helpButton"
@@ -184,24 +199,26 @@
         android:textColor="@color/bg"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.819"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.976" />
+        app:layout_constraintVertical_bias="0.963" />
 
     <ListView
-        android:textColor="@color/black"
         android:id="@+id/simplelistview"
-        android:layout_width="409dp"
-        android:layout_height="214dp"
+        android:layout_width="292dp"
+        android:layout_height="128dp"
+        android:textColor="@color/black"
+        android:divider="@color/black"
+        android:dividerHeight="2dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="0.495"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.783" />
+        app:layout_constraintVertical_bias="0.714" />
 
     <TextView
-        android:background="@drawable/inputbox"
         android:textColor="@color/black"
         android:fontFamily="sans-serif-medium"
         android:id="@+id/userInput"
@@ -216,7 +233,6 @@
         app:layout_constraintVertical_bias="0.14" />
 
     <TextView
-        android:background="@drawable/inputbox"
         android:id="@+id/firstNameInput"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -231,7 +247,6 @@
         app:layout_constraintVertical_bias="0.186" />
 
     <TextView
-        android:background="@drawable/inputbox"
         android:id="@+id/lastNameInput"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
