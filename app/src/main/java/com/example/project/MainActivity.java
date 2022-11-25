@@ -11,6 +11,7 @@ import android.widget.ImageButton;
 public class MainActivity extends AppCompatActivity {
 
     private Button toProfileBtn;
+    private Button toAddExpense;
     private ImageButton toProfileImgBtn;
 
     @Override
@@ -20,6 +21,7 @@ public class MainActivity extends AppCompatActivity {
 
         toProfileImgBtn = (ImageButton) findViewById(R.id.goToProfileImageButton);
         toProfileBtn = (Button) findViewById(R.id.goToProfileButton);
+        toAddExpense = (Button) findViewById(R.id.buttonAddExpense);
 
 
         toProfileImgBtn.setOnClickListener(new View.OnClickListener() {
@@ -32,10 +34,22 @@ public class MainActivity extends AppCompatActivity {
                 openProfileActivity();
             }
         });
+        toAddExpense.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                openAddExpense();
+            }
+        });
     }
 
     public void openProfileActivity(){
         Intent intent = new Intent(MainActivity.this, Profile_v2.class);
+        intent.putExtra("activityOne", "I am from the First Activity!!");
+        startActivity(intent);
+    }
+
+    public void openAddExpense(){
+        Intent intent = new Intent(MainActivity.this, AddExpense.class);
         intent.putExtra("activityOne", "I am from the First Activity!!");
         startActivity(intent);
     }
