@@ -2,6 +2,7 @@ package com.example.project;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -18,24 +19,23 @@ import java.text.DecimalFormat;
 public class Profile_v2 extends AppCompatActivity {
 
     // Budget
-    Button chCurr;
-    EditText budgetInput;
-    DecimalFormat round = new DecimalFormat("0.0");
-    TextView symbol;
+    public Button chCurr;
+    public EditText budgetInput;
+    public DecimalFormat round = new DecimalFormat("0.0");
+    public TextView symbol;
 
     // Categories list view
-    String[] categories = {"Groceries", "Gas and Fuel", "Outgoing expenses", "Internet"};
-    ListView listView;
-    Button addCat;
+    public ListView listView;
+    public Button addCat;
+    public String[] categories_profile = {"Groceries", "Gas and Fuel", "Outgoing expenses", "Internet"};
 
     // Frequencies Dropdown Menu
-    Spinner spinner;
-    String[] frequencies =  {"Daily","Weekly","Monthly","Customize"};
-    ArrayAdapter<String> adapterItems;
+    public Spinner spinner;
+    public String[] frequencies =  {"Daily","Weekly","Monthly","Customize"};
+    public ArrayAdapter<String> adapterItems;
 
     // Other buttons
-    Button saveCh;
-    Button needHlp;
+    public Button saveCh;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,16 +50,20 @@ public class Profile_v2 extends AppCompatActivity {
         spinner.setAdapter(adapterItems);
 
         // Listview
+        // Add category
         listView = (ListView) findViewById(R.id.simplelistview);
-        ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String> (this, R.layout.activity_simple_list_view, R.id.test, categories);
+        updateCategories();
+        ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String> (this, R.layout.activity_simple_list_view, R.id.test, categories_profile);
         listView.setAdapter(arrayAdapter);
 
-        // Adding a category when clicking the "Add Category Button"
-        addCat = (Button) findViewById((R.id.changeCurr));
+        // Adding a category when clicking the "Add Category Button" by going to the addCategory activity
+        addCat = (Button) findViewById((R.id.addCategory2));
         addCat.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Log.i("add cat", "onClick: HAHAHAHAHAH");
+                // Getting the categories array to the other activity
+                Intent intent = new Intent(Profile_v2.this, addCategory.class);
+                startActivity(intent);
             }
         });
 
@@ -102,7 +106,6 @@ public class Profile_v2 extends AppCompatActivity {
                     symbol.setText("£");
                     chCurr.setText("Switch to €");
                 }
-                Log.i("change help", "onClick: yayaay");
             }
         });
     }
@@ -117,5 +120,13 @@ public class Profile_v2 extends AppCompatActivity {
         double resPound;
         resPound = euroVal/1.16;
         return resPound;
+    }
+
+    public void updateCategories() {
+        Bundle extras = getIntent().getExtras();
+        String[] categories_profile_updated = extras.getStringArray("fromAddCat");
+        if(categories_profile_updated != null) {
+            categories_profile = categories_profile_updated;
+        }
     }
 }
