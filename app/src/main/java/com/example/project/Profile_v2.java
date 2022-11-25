@@ -5,15 +5,23 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
-import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
-import android.widget.AutoCompleteTextView;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.Spinner;
+import android.widget.TextView;
 import android.widget.Toast;
 
+import java.text.DecimalFormat;
+
 public class Profile_v2 extends AppCompatActivity {
+
+    // Budget
+    Button chCurr;
+    EditText budgetInput;
+    DecimalFormat round = new DecimalFormat("0.0");
+    TextView symbol;
 
     // Categories list view
     String[] categories = {"Groceries", "Gas and Fuel", "Outgoing expenses", "Internet"};
@@ -47,7 +55,7 @@ public class Profile_v2 extends AppCompatActivity {
         listView.setAdapter(arrayAdapter);
 
         // Adding a category when clicking the "Add Category Button"
-        addCat = (Button) findViewById((R.id.addCategory));
+        addCat = (Button) findViewById((R.id.changeCurr));
         addCat.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -57,7 +65,6 @@ public class Profile_v2 extends AppCompatActivity {
 
         // Other buttons
         saveCh = (Button) findViewById(R.id.saveButton2);
-        needHlp = (Button) findViewById(R.id.helpButton);
 
         saveCh.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -66,13 +73,49 @@ public class Profile_v2 extends AppCompatActivity {
             }
         });
 
-        needHlp.setOnClickListener(new View.OnClickListener() {
+        // Budget
+        chCurr = (Button) findViewById(R.id.changeCurr);
+        budgetInput = (EditText) findViewById(R.id.budgetEdit);
+        symbol = (TextView) findViewById(R.id.currSymbol);
+
+        chCurr.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Log.i("need help", "onClick: CHCHHCUCU");
+                String editTextVal = budgetInput.getText().toString();
+                if(editTextVal.isEmpty()) {
+                    Toast.makeText(getApplicationContext(), "Please enter a budget value", Toast.LENGTH_LONG).show();
+                }
+                else if(chCurr.getText() == "Switch to €") {
+                    // Changing the value inside the editText
+                    double intEditText = Double.parseDouble(editTextVal);
+                    double convertedVal = convertToEuros(intEditText);
+                    String resString = String.valueOf(round.format(convertedVal));
+                    budgetInput.setText(resString);
+                    // Changing the button value from € to £ and the symbol too
+                    symbol.setText("€");
+                    chCurr.setText("Switch to £");
+                } else {
+                    double intEditText = Double.parseDouble(editTextVal);
+                    double convertedVal = convertToPounds(intEditText);
+                    String resString = String.valueOf(round.format(convertedVal));
+                    budgetInput.setText(resString);
+                    symbol.setText("£");
+                    chCurr.setText("Switch to €");
+                }
+                Log.i("change help", "onClick: yayaay");
             }
         });
+    }
 
+    public double convertToEuros(double poundVal){
+        double resEuro;
+        resEuro = 1.16*poundVal;
+        return resEuro;
+    }
 
+    public double convertToPounds(double euroVal){
+        double resPound;
+        resPound = euroVal/1.16;
+        return resPound;
     }
 }
