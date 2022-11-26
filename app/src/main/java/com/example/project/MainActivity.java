@@ -12,6 +12,7 @@ public class MainActivity extends AppCompatActivity {
 
     private Button toProfileBtn;
     private Button toAddExpense;
+    private Button toDetailledView;
     private ImageButton toProfileImgBtn;
 
     @Override
@@ -22,6 +23,7 @@ public class MainActivity extends AppCompatActivity {
         toProfileImgBtn = (ImageButton) findViewById(R.id.goToProfileImageButton);
         toProfileBtn = (Button) findViewById(R.id.goToProfileButton);
         toAddExpense = (Button) findViewById(R.id.buttonAddExpense);
+        toDetailledView = (Button) findViewById(R.id.buttonVd);
 
 
         toProfileImgBtn.setOnClickListener(new View.OnClickListener() {
@@ -40,17 +42,26 @@ public class MainActivity extends AppCompatActivity {
                 openAddExpense();
             }
         });
+        toDetailledView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                openDetailedView();
+            }
+        });
     }
 
     public void openProfileActivity(){
         Intent intent = new Intent(MainActivity.this, Profile_v2.class);
-        intent.putExtra("activityOne", "I am from the First Activity!!");
         startActivity(intent);
     }
 
     public void openAddExpense(){
         Intent intent = new Intent(MainActivity.this, addExpense_v2.class);
-        intent.putExtra("activityOne", "I am from the First Activity!!");
+        startActivity(intent);
+    }
+
+    public void openDetailedView(){
+        Intent intent = new Intent(MainActivity.this, detailledView.class);
         startActivity(intent);
     }
 }
