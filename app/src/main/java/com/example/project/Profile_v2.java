@@ -81,6 +81,7 @@ public class Profile_v2 extends AppCompatActivity {
         chCurr = (Button) findViewById(R.id.changeCurr);
         budgetInput = (EditText) findViewById(R.id.budgetEdit);
         symbol = (TextView) findViewById(R.id.currSymbol);
+        symbol.setText("£");
 
         chCurr.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -90,21 +91,21 @@ public class Profile_v2 extends AppCompatActivity {
                     Toast.makeText(getApplicationContext(), "Please enter a budget value", Toast.LENGTH_LONG).show();
                 }
                 else if(chCurr.getText() == "Switch to €") {
+                    // Changing the button value from € to £ and the symbol too
+                    symbol.setText("€");
+                    chCurr.setText("Switch to £");
                     // Changing the value inside the editText
                     double intEditText = Double.parseDouble(editTextVal);
                     double convertedVal = convertToEuros(intEditText);
                     String resString = String.valueOf(round.format(convertedVal));
                     budgetInput.setText(resString);
-                    // Changing the button value from € to £ and the symbol too
-                    symbol.setText("€");
-                    chCurr.setText("Switch to £");
                 } else {
+                    symbol.setText("£");
+                    chCurr.setText("Switch to €");
                     double intEditText = Double.parseDouble(editTextVal);
                     double convertedVal = convertToPounds(intEditText);
                     String resString = String.valueOf(round.format(convertedVal));
                     budgetInput.setText(resString);
-                    symbol.setText("£");
-                    chCurr.setText("Switch to €");
                 }
             }
         });
