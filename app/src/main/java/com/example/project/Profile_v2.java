@@ -124,9 +124,8 @@ public class Profile_v2 extends AppCompatActivity {
 
     public void updateCategories() {
         Bundle extras = getIntent().getExtras();
-        String[] categories_profile_updated = extras.getStringArray("fromAddCat");
-        if(categories_profile_updated != null) {
-            categories_profile = categories_profile_updated;
+        if(extras != null) {
+            categories_profile = extras.getStringArray("fromAddCat");
         }
     }
 }
