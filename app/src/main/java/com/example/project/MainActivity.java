@@ -49,7 +49,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void openAddExpense(){
-        Intent intent = new Intent(MainActivity.this, AddExpense.class);
+        Intent intent = new Intent(MainActivity.this, addExpense_v2.class);
         intent.putExtra("activityOne", "I am from the First Activity!!");
         startActivity(intent);
     }
