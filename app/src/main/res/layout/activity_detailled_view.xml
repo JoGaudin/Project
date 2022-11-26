@@ -8,6 +8,38 @@
     android:background="@color/bg">
 
     <TextView
+        android:id="@+id/internetPct"
+        android:gravity="center"
+        android:layout_width="70dp"
+        android:layout_height="28dp"
+        android:background="@drawable/inputbox_orange"
+        android:fontFamily="sans-serif-medium"
+        android:textColor="@color/black"
+        android:textSize="40px"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.95"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.568" />
+
+    <TextView
+        android:id="@+id/popcornPct"
+        android:gravity="center"
+        android:layout_width="70dp"
+        android:layout_height="28dp"
+        android:background="@drawable/inputbox_yellow"
+        android:fontFamily="sans-serif-medium"
+        android:textColor="@color/black"
+        android:textSize="40px"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.95"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.446" />
+
+    <TextView
         android:id="@+id/totalText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -17,10 +49,24 @@
         android:textSize="60px"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.239"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.751" />
+        app:layout_constraintVertical_bias="0.721" />
+
+    <TextView
+        android:id="@+id/totalVal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="sans-serif-black"
+        android:textColor="@color/black"
+        android:textSize="70px"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.801" />
 
     <TextView
         android:id="@+id/detailedViewTitle"
@@ -100,19 +146,51 @@
         app:layout_constraintVertical_bias="0.143" />
 
     <TextView
-        android:id="@+id/groceriesQty"
-        android:layout_width="223dp"
+        android:id="@+id/groceriesPct"
+        android:layout_width="70dp"
         android:layout_height="28dp"
         android:background="@drawable/inputbox_red"
         android:fontFamily="sans-serif-medium"
         android:textColor="@color/black"
         android:textSize="40px"
-        android:text="537.98"
-        android:inputType="numberDecimal"
         android:gravity="center"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.664"
+        app:layout_constraintHorizontal_bias="0.953"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.197" />
+
+    <TextView
+        android:id="@+id/carPct"
+        android:gravity="center"
+        android:layout_width="70dp"
+        android:layout_height="28dp"
+        android:background="@drawable/inputbox_green"
+        android:fontFamily="sans-serif-medium"
+        android:textColor="@color/black"
+        android:textSize="40px"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.953"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.314" />
+
+    <TextView
+        android:id="@+id/groceriesQty"
+        android:layout_width="200dp"
+        android:layout_height="28dp"
+        android:background="@drawable/inputbox_red"
+        android:fontFamily="sans-serif-medium"
+        android:gravity="center"
+        android:inputType="numberDecimal"
+        android:text="537.98"
+        android:textColor="@color/black"
+        android:textSize="40px"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.587"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.197" />
@@ -136,13 +214,31 @@
         app:layout_constraintVertical_bias="0.314" />
 
     <TextView
-        android:id="@+id/carQty2"
+        android:id="@+id/internetQty"
+        android:layout_width="103dp"
+        android:layout_height="28dp"
+        android:background="@drawable/inputbox_orange"
+        android:fontFamily="sans-serif-medium"
+        android:gravity="center"
+        android:inputType="numberDecimal"
+        android:text="40"
+        android:textColor="@color/black"
+        android:textSize="40px"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.402"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.568" />
+
+    <TextView
+        android:id="@+id/popcornQty"
         android:layout_width="134dp"
         android:layout_height="28dp"
         android:background="@drawable/inputbox_yellow"
         android:fontFamily="sans-serif-medium"
-        android:inputType="numberDecimal"
         android:gravity="center"
+        android:inputType="numberDecimal"
         android:text="102.35"
         android:textColor="@color/black"
         android:textSize="40px"
