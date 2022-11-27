@@ -7,37 +7,89 @@
     tools:context=".detailledView"
     android:background="@color/bg">
 
+    <ProgressBar
+        android:id="@+id/groceryPb"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="307dp"
+        android:layout_height="25dp"
+        android:progressDrawable="@drawable/progressbar_red"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.923"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.201" />
+
+    <ProgressBar
+        android:id="@+id/internetPb"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="307dp"
+        android:layout_height="25dp"
+        android:progressDrawable="@drawable/progressbar_orange"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.923"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.556" />
+
+    <ProgressBar
+        android:id="@+id/carPb"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="307dp"
+        android:layout_height="25dp"
+        android:progressDrawable="@drawable/progressbar_green"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.923"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.317" />
+
+    <ProgressBar
+        android:id="@+id/popcornPb"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="307dp"
+        android:layout_height="25dp"
+        android:progressDrawable="@drawable/progressbar_yellow"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.923"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.439" />
+
     <TextView
         android:id="@+id/internetPct"
-        android:gravity="center"
         android:layout_width="70dp"
         android:layout_height="28dp"
         android:background="@drawable/inputbox_orange"
         android:fontFamily="sans-serif-medium"
+        android:gravity="center"
         android:textColor="@color/black"
         android:textSize="40px"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.95"
+        app:layout_constraintHorizontal_bias="0.976"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.568" />
+        app:layout_constraintVertical_bias="0.559" />
 
     <TextView
         android:id="@+id/popcornPct"
-        android:gravity="center"
         android:layout_width="70dp"
         android:layout_height="28dp"
         android:background="@drawable/inputbox_yellow"
         android:fontFamily="sans-serif-medium"
+        android:gravity="center"
         android:textColor="@color/black"
         android:textSize="40px"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.95"
+        app:layout_constraintHorizontal_bias="0.976"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.446" />
+        app:layout_constraintVertical_bias="0.44" />
 
     <TextView
         android:id="@+id/totalText"
@@ -88,10 +140,10 @@
         android:layout_height="65dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.108"
+        app:layout_constraintHorizontal_bias="0.046"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.154"
+        app:layout_constraintVertical_bias="0.153"
         app:srcCompat="@drawable/groceries" />
 
     <ImageView
@@ -100,10 +152,10 @@
         android:layout_height="64dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.078"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.286"
+        app:layout_constraintVertical_bias="0.284"
         app:srcCompat="@drawable/car" />
 
     <ImageView
@@ -112,7 +164,7 @@
         android:layout_height="65dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.105"
+        app:layout_constraintHorizontal_bias="0.045"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.415"
@@ -124,10 +176,10 @@
         android:layout_height="100dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.117"
+        app:layout_constraintHorizontal_bias="0.044"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.554"
+        app:layout_constraintVertical_bias="0.553"
         app:srcCompat="@drawable/internet" />
 
     <TextView
@@ -137,10 +189,10 @@
         android:fontFamily="sans-serif-medium"
         android:text="Groceries"
         android:textColor="@color/black"
-        android:textSize="40px"
+        android:textSize="50px"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.36"
+        app:layout_constraintHorizontal_bias="0.278"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.143" />
@@ -151,37 +203,36 @@
         android:layout_height="28dp"
         android:background="@drawable/inputbox_red"
         android:fontFamily="sans-serif-medium"
+        android:gravity="center"
         android:textColor="@color/black"
         android:textSize="40px"
-        android:gravity="center"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.953"
+        app:layout_constraintHorizontal_bias="0.976"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.197" />
+        app:layout_constraintVertical_bias="0.201" />
 
     <TextView
         android:id="@+id/carPct"
-        android:gravity="center"
         android:layout_width="70dp"
         android:layout_height="28dp"
         android:background="@drawable/inputbox_green"
         android:fontFamily="sans-serif-medium"
+        android:gravity="center"
         android:textColor="@color/black"
         android:textSize="40px"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.953"
+        app:layout_constraintHorizontal_bias="0.976"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.314" />
+        app:layout_constraintVertical_bias="0.317" />
 
     <TextView
         android:id="@+id/groceriesQty"
-        android:layout_width="200dp"
+        android:layout_width="80dp"
         android:layout_height="28dp"
-        android:background="@drawable/inputbox_red"
         android:fontFamily="sans-serif-medium"
         android:gravity="center"
         android:inputType="numberDecimal"
@@ -190,34 +241,32 @@
         android:textSize="40px"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.587"
+        app:layout_constraintHorizontal_bias="0.341"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.197" />
+        app:layout_constraintVertical_bias="0.2" />
 
     <TextView
         android:id="@+id/carQty"
-        android:layout_width="168dp"
+        android:layout_width="80dp"
         android:layout_height="28dp"
-        android:background="@drawable/inputbox_green"
         android:fontFamily="sans-serif-medium"
+        android:gravity="center"
         android:inputType="numberDecimal"
         android:text="284.45"
-        android:gravity="center"
         android:textColor="@color/black"
         android:textSize="40px"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.51"
+        app:layout_constraintHorizontal_bias="0.341"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.314" />
+        app:layout_constraintVertical_bias="0.318" />
 
     <TextView
         android:id="@+id/internetQty"
-        android:layout_width="103dp"
+        android:layout_width="80dp"
         android:layout_height="28dp"
-        android:background="@drawable/inputbox_orange"
         android:fontFamily="sans-serif-medium"
         android:gravity="center"
         android:inputType="numberDecimal"
@@ -226,16 +275,15 @@
         android:textSize="40px"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.402"
+        app:layout_constraintHorizontal_bias="0.341"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.568" />
+        app:layout_constraintVertical_bias="0.559" />
 
     <TextView
         android:id="@+id/popcornQty"
-        android:layout_width="134dp"
+        android:layout_width="80dp"
         android:layout_height="28dp"
-        android:background="@drawable/inputbox_yellow"
         android:fontFamily="sans-serif-medium"
         android:gravity="center"
         android:inputType="numberDecimal"
@@ -244,10 +292,10 @@
         android:textSize="40px"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.451"
+        app:layout_constraintHorizontal_bias="0.341"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.44" />
+        app:layout_constraintVertical_bias="0.439" />
 
     <TextView
         android:id="@+id/carText"
@@ -256,10 +304,10 @@
         android:fontFamily="sans-serif-medium"
         android:text="Gas and Fuel"
         android:textColor="@color/black"
-        android:textSize="40px"
+        android:textSize="50px"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.386"
+        app:layout_constraintHorizontal_bias="0.297"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.269" />
@@ -271,13 +319,12 @@
         android:fontFamily="sans-serif-medium"
         android:text="Internet"
         android:textColor="@color/black"
-        android:textSize="40px"
+        android:textSize="50px"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.348"
+        app:layout_constraintHorizontal_bias="0.267"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.521" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/popcornText"
@@ -286,10 +333,10 @@
         android:fontFamily="sans-serif-medium"
         android:text="Outgoing Expenses"
         android:textColor="@color/black"
-        android:textSize="40px"
+        android:textSize="50px"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.446"
+        app:layout_constraintHorizontal_bias="0.342"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.39" />
@@ -303,5 +350,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.643" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
