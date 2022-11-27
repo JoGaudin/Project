@@ -13,6 +13,7 @@
         android:layout_height="128dp"
         android:divider="@color/black"
         android:dividerHeight="2dp"
+        android:listSelector="@drawable/inputbox"
         android:textColor="@color/black"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

@@ -28,9 +28,14 @@ public class addCategory extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_category);
 
-        // Giving the categories information to the profile page
-        Intent intent = new Intent(addCategory.this, Profile_v2.class);
-        intent.putExtra("fromAddCat", categories_addCat);
+        // previous page
+        Bundle extras = getIntent().getExtras();
+
+        // Giving the categories information to the profile/add expense page
+        Intent intent1 = new Intent(addCategory.this, Profile_v2.class);
+        intent1.putExtra("fromAddCat", categories_addCat);
+        Intent intent2 = new Intent(addCategory.this, addExpense_v2.class);
+        intent2.putExtra("fromAddCat", categories_addCat);
 
         // Listview
         listView = (ListView) findViewById(R.id.simplelistview2);
@@ -51,9 +56,15 @@ public class addCategory extends AppCompatActivity {
                     if(categories_addCat.length < 7) {
                         categoriesAdded.add(editTextVal);
                         categories_addCat = categoriesAdded.toArray(categories_addCat);
-                        Intent intent = new Intent(addCategory.this, Profile_v2.class);
-                        intent.putExtra("fromAddCat", categories_addCat);
-                        startActivity(intent);
+                        Intent intent1 = new Intent(addCategory.this, Profile_v2.class);
+                        intent1.putExtra("fromAddCat", categories_addCat);
+                        Intent intent2 = new Intent(addCategory.this, addExpense_v2.class);
+                        intent2.putExtra("fromAddCat", categories_addCat);
+                        if(extras != null) {
+                            startActivity(intent1);
+                        } else {
+                            startActivity(intent2);
+                        }
                     } else {
                         Toast.makeText(getApplicationContext(), "Too many categories, please delete one", Toast.LENGTH_LONG).show();
                     }
