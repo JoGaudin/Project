@@ -44,7 +44,6 @@ public class Profile_v2 extends AppCompatActivity {
 
         // Frequencies Dropdown Menu
         spinner = findViewById(R.id.spiinner);
-
         adapterItems = new ArrayAdapter<String>(Profile_v2.this,android.R.layout.simple_spinner_item,frequencies);
         adapterItems.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinner.setAdapter(adapterItems);
