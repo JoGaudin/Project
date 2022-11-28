@@ -9,6 +9,7 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import java.text.DecimalFormat;
+import java.util.List;
 import java.util.Timer;
 import java.util.TimerTask;
 
@@ -35,6 +36,8 @@ public class detailledView extends AppCompatActivity {
     public ProgressBar netPb;
     int counter = 0;
 
+    private List<MyExpense> myExpenseList;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -45,6 +48,8 @@ public class detailledView extends AppCompatActivity {
         outgoing = (TextView) findViewById(R.id.popcornQty);
         net = (TextView) findViewById(R.id.internetQty);
         total = (TextView) findViewById(R.id.totalVal);
+
+        myExpenseList = ExpenseBase.get().getExpenses();
 
         double total_value = getTotal(getAmount(grocery),getAmount(gas),getAmount(outgoing),getAmount(net));
         total.setText(String.valueOf(round.format(total_value)));

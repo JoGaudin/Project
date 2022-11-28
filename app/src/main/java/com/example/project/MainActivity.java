@@ -11,6 +11,7 @@ import android.widget.ImageButton;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import java.util.List;
+import android.util.Log;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -21,8 +22,10 @@ public class MainActivity extends AppCompatActivity {
     private ProgressBar ProBarBudget;
     private TextView ProBarText;
     private TextView BudgetRemain;
+    private TextView Expense;
 
     private List<MyExpense> myExpenseList;
+    double allexpense = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,7 +40,15 @@ public class MainActivity extends AppCompatActivity {
         ProBarBudget = (ProgressBar) findViewById(R.id.progressBarBudget);
         ProBarText = (TextView) findViewById(R.id.textProgressBar);
         BudgetRemain = (TextView) findViewById(R.id.budgetremain);
+        Expense = (TextView) findViewById(R.id.remainBudget);
+
         myExpenseList = ExpenseBase.get().getExpenses();
+
+
+        for(int i = 0; i < myExpenseList.size(); i++){
+            allexpense += myExpenseList.get(i).getAmount();
+        }
+        Expense.setText(allexpense + "£");
         double var = 80;
         updateprogressbar(var);
         budgetremain(var);

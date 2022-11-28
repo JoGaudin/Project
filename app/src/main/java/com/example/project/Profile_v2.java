@@ -4,7 +4,6 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
@@ -36,6 +35,9 @@ public class Profile_v2 extends AppCompatActivity {
 
     // Other buttons
     public Button saveCh;
+
+    //Budget
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -79,7 +81,7 @@ public class Profile_v2 extends AppCompatActivity {
         saveCh.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                String budget = budgetInput.getText().toString();
+                double budgetVal = Double.parseDouble(budgetInput.getText().toString());
                 Toast.makeText(Profile_v2.this, "Modifications saved", Toast.LENGTH_SHORT).show();
                 Intent intent = new Intent(Profile_v2.this, MainActivity.class);
                 startActivity(intent);
