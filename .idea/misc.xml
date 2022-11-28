@@ -4,13 +4,16 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/Users/johan/AndroidStudioProjects/Project/app/src/main/res/drawable/circle.xml" value="0.241" />
+        <entry key="..\:/Users/johan/AndroidStudioProjects/Project/app/src/main/res/layout/activity_add_expense_v2.xml" value="0.25" />
         <entry key="..\:/Users/johan/AndroidStudioProjects/Project/app/src/main/res/layout/activity_categories.xml" value="0.25" />
         <entry key="..\:/Users/johan/AndroidStudioProjects/Project/app/src/main/res/layout/activity_custom_list_view.xml" value="0.25" />
-        <entry key="..\:/Users/johan/AndroidStudioProjects/Project/app/src/main/res/layout/activity_main.xml" value="0.264" />
+        <entry key="..\:/Users/johan/AndroidStudioProjects/Project/app/src/main/res/layout/activity_detailled_view.xml" value="0.25" />
+        <entry key="..\:/Users/johan/AndroidStudioProjects/Project/app/src/main/res/layout/activity_main.xml" value="0.2" />
         <entry key="..\:/Users/johan/AndroidStudioProjects/Project/app/src/main/res/layout/activity_profile_v2.xml" value="0.25" />
         <entry key="..\:/Users/johan/AndroidStudioProjects/Project/app/src/main/res/layout/activity_simple_list_view.xml" value="0.25" />
         <entry key="..\:/Users/johan/AndroidStudioProjects/Project/app/src/main/res/layout/add_expense.xml" value="0.25" />
         <entry key="..\:/Users/johan/AndroidStudioProjects/Project/app/src/main/res/layout/profile.xml" value="0.25" />
+        <entry key="..\:/Users/johan/AndroidStudioProjects/Project/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.14" />
       </map>
     </option>
   </component>
