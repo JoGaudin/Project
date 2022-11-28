@@ -21,11 +21,13 @@ import android.widget.Toast;
 import java.text.DecimalFormat;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import java.util.List;
 
 public class addExpense_v2 extends AppCompatActivity {
 
     // The expense itself
     public MyExpense newExpense;
+    private List<MyExpense> mExpenses;
 
     // Title expense
     public EditText expTitle;
@@ -58,8 +60,6 @@ public class addExpense_v2 extends AppCompatActivity {
 
         // Title expense
         expTitle = (EditText) findViewById(R.id.expenseEdit);
-        String expTitleVal = expTitle.getText().toString();
-        Log.v("cccccc",expTitleVal);
 
         // Date
         // Displays the current date by default
@@ -68,9 +68,6 @@ public class addExpense_v2 extends AppCompatActivity {
         dateFormat = new SimpleDateFormat("MM/dd/yyyy");
         String dateHint = dateFormat.format(calendar.getTime());
         dateTimeDisplay.setText(dateHint);
-        // Getting the date input
-        String dateTimeVal = dateTimeDisplay.getText().toString();
-        Log.v("cccccc",dateTimeVal);
 
         // Amount
         chCurr = (Button) findViewById(R.id.changeCurr2);
@@ -90,9 +87,6 @@ public class addExpense_v2 extends AppCompatActivity {
                 }
             }
         });
-        double amountVal = Double.parseDouble(amount.getText().toString());
-        String currencyVal = symbol.getText().toString();
-        Log.v("cccccc",currencyVal);
 
         // Add category
         listView = (ListView) findViewById(R.id.simplelistview);
@@ -107,7 +101,6 @@ public class addExpense_v2 extends AppCompatActivity {
                 listItem = (String) listView.getItemAtPosition(position);
             }
         });
-        Log.v("cccccc",listItem);
 
         // Adding a category when clicking the "Add Category Button" by going to the addCategory activity
         addCat = (Button) findViewById((R.id.addCategory3));
@@ -121,18 +114,21 @@ public class addExpense_v2 extends AppCompatActivity {
         });
 
         // save expense leads to the sound effect
-        newExpense = new MyExpense(expTitleVal, dateTimeVal, amountVal, currencyVal, listItem);
         mediaPlayer = new MediaPlayer();
         mediaPlayer = MediaPlayer.create(this, R.raw.sound);
         saveExp = (Button) findViewById(R.id.saveExpense);
+        mExpenses = ExpenseBase.get().getExpenses();
         saveExp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 startSound();
-                Log.e("aaaaaa",newExpense.getDate());
-                Log.e("aaaaaa",newExpense.getTitle());
-                Log.e("aaaaaa",newExpense.getCategory());
-                Log.e("aaaaaa",String.valueOf(newExpense.getAmount()));
+                String expTitleVal = expTitle.getText().toString();
+                String dateTimeVal = dateTimeDisplay.getText().toString();
+                double amountVal = Double.parseDouble(amount.getText().toString());
+                String currencyVal = symbol.getText().toString();
+                String catVal = listItem;
+                newExpense = new MyExpense(expTitleVal, dateTimeVal, amountVal, currencyVal, catVal);
+                mExpenses.add(newExpense);
                 Toast.makeText(getApplicationContext(), "Expense saved", Toast.LENGTH_LONG).show();
                 Intent intent = new Intent(addExpense_v2.this, MainActivity.class);
                 startActivity(intent);
