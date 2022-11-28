@@ -22,10 +22,12 @@ public class MainActivity extends AppCompatActivity {
     private ProgressBar ProBarBudget;
     private TextView ProBarText;
     private TextView BudgetRemain;
+    private TextView Remain;
     private TextView Expense;
 
     private List<MyExpense> myExpenseList;
     double allexpense = 0;
+    double remain = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,7 +42,8 @@ public class MainActivity extends AppCompatActivity {
         ProBarBudget = (ProgressBar) findViewById(R.id.progressBarBudget);
         ProBarText = (TextView) findViewById(R.id.textProgressBar);
         BudgetRemain = (TextView) findViewById(R.id.budgetremain);
-        Expense = (TextView) findViewById(R.id.remainBudget);
+        Remain = (TextView) findViewById(R.id.remainBudget);
+        Expense = (TextView) findViewById(R.id.allexpense);
 
         myExpenseList = ExpenseBase.get().getExpenses();
 
@@ -49,9 +52,11 @@ public class MainActivity extends AppCompatActivity {
             allexpense += myExpenseList.get(i).getAmount();
         }
         Expense.setText(allexpense + "£");
+        Remain.setText(remain + "£");
         double var = 80;
         updateprogressbar(var);
         budgetremain(var);
+
 
 
 
