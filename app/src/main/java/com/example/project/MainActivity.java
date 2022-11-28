@@ -25,6 +25,7 @@ public class MainActivity extends AppCompatActivity {
     private TextView ProBarText;
     private TextView BudgetRemain;
     private TextView Expense;
+    private TextView Remain;
 
     private List<MyExpense> myExpenseList;
     private List<MyBudget> mBudget;
@@ -46,19 +47,22 @@ public class MainActivity extends AppCompatActivity {
         ProBarText = (TextView) findViewById(R.id.textProgressBar);
         ProBarText.setText("O.O%");
         BudgetRemain = (TextView) findViewById(R.id.budgetremain);
-        Expense = (TextView) findViewById(R.id.remainBudget);
-
+        Expense = (TextView) findViewById(R.id.allexpense);
+        Remain = (TextView) findViewById(R.id.remainBudget);
         myExpenseList = ExpenseBase.get().getExpenses();
 
 
         for(int i = 0; i < myExpenseList.size(); i++){
             allexpense += myExpenseList.get(i).getAmount();
         }
-        double remaining = getBudget()-allexpense;
-        Expense.setText(remaining + "£");
+
+        Expense.setText(allexpense + "£");
         double var = allexpense/getBudget()*100;
         updateprogressbar(var);
         budgetremain(var);
+        double remaining = getBudget()-allexpense;
+        Remain.setText(remaining + "£");
+
 
         toProfileImgBtn.setOnClickListener(new View.OnClickListener() {
             @Override
