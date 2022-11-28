@@ -59,17 +59,21 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.023" />
 
-    <ImageButton
-        android:id="@+id/goToProfileImageButton"
-        android:layout_width="105dp"
-        android:layout_height="97dp"
+
+    <ProgressBar
+        android:id="@+id/progressBarBudget"
+        style="?android:progressBarStyleHorizontal"
+        android:layout_width="400dp"
+        android:layout_height="400dp"
+        android:progressDrawable="@drawable/circle"
+        android:rotation="0"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.947"
+        app:layout_constraintHorizontal_bias="0.454"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.025"
-        tools:srcCompat="@tools:sample/avatars" />
+        app:layout_constraintVertical_bias="0.504"
+        tools:progress="0"/>
 
     <Button
         android:id="@+id/buttonAddExpense"
@@ -85,20 +89,6 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.407" />
 
-    <ProgressBar
-        android:id="@+id/progressbarGroceries"
-        style="?android:progressBarStyleHorizontal"
-        android:layout_width="300dp"
-        android:layout_height="300dp"
-        android:progress="80"
-        android:progressDrawable="@drawable/circle"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.495"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.498" />
-
     <Button
         android:id="@+id/buttonVd"
         android:layout_width="wrap_content"
@@ -112,91 +102,46 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.994" />
 
-    <Button
-        android:id="@+id/chartGroceries"
-        android:layout_width="25dp"
-        android:layout_height="25dp"
-        android:backgroundTint="@color/red"
-        android:enabled="false"
-        android:text=""
-        android:textColor="@color/bg"
-        android:visibility="visible"
+    <ImageButton
+        android:id="@+id/goToProfileImageButton"
+        android:layout_width="92dp"
+        android:layout_height="89dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.251"
+        app:layout_constraintHorizontal_bias="0.945"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.75" />
+        app:layout_constraintVertical_bias="0.044"
+        app:srcCompat="@drawable/guy"
+        android:scaleType="fitCenter"/>
 
     <TextView
-        android:id="@+id/textChartGroceries"
-        android:layout_width="71dp"
-        android:layout_height="22dp"
-        android:text="Groceries"
-        android:textSize="40px"
+        android:id="@+id/budgetremain"
+        android:layout_width="363dp"
+        android:layout_height="82dp"
+        android:text="You have used less than 50% of your budget"
+        android:textSize="75px"
+        android:textStyle="bold"
+        android:gravity="center"
+        android:textColor="@color/green"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.401"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.752" />
-
-    <Button
-        android:id="@+id/chartGas"
-        android:layout_width="25dp"
-        android:layout_height="25dp"
-        android:backgroundTint="@color/green"
-        android:enabled="false"
-        android:text=""
-        android:textColor="@color/bg"
-        android:visibility="visible"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.251"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.805" />
+        app:layout_constraintVertical_bias="0.863" />
 
     <TextView
-        android:id="@+id/textChartGas"
-        android:layout_width="107dp"
-        android:layout_height="21dp"
-        android:text="Gas and Fuel"
-        android:textSize="40px"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.447"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.805" />
+        android:id="@+id/textProgressBar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="0%"
+        android:textSize="100px"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/progressBarBudget"
+        app:layout_constraintEnd_toEndOf="@+id/progressBarBudget"
+        app:layout_constraintStart_toStartOf="@+id/progressBarBudget"
+        app:layout_constraintTop_toBottomOf="@+id/remainBudget" />
 
-    <Button
-        android:id="@+id/chartOut"
-        android:layout_width="25dp"
-        android:layout_height="25dp"
-        android:backgroundTint="@color/yellow"
-        android:enabled="false"
-        android:text=""
-        android:textColor="@color/bg"
-        android:visibility="visible"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.251"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.858" />
-
-    <TextView
-        android:id="@+id/textOut"
-        android:layout_width="71dp"
-        android:layout_height="22dp"
-        android:text="Outgoing"
-        android:textSize="40px"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.4"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.858" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

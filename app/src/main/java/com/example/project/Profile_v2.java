@@ -55,6 +55,12 @@ public class Profile_v2 extends AppCompatActivity {
         ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String> (this, R.layout.activity_simple_list_view, R.id.test, categories_profile);
         listView.setAdapter(arrayAdapter);
 
+        // Budget
+        chCurr = (Button) findViewById(R.id.changeCurr);
+        budgetInput = (EditText) findViewById(R.id.budgetEdit);
+        symbol = (TextView) findViewById(R.id.currSymbol);
+        symbol.setText("£");
+
         // Adding a category when clicking the "Add Category Button" by going to the addCategory activity
         addCat = (Button) findViewById((R.id.addCategory2));
         addCat.setOnClickListener(new View.OnClickListener() {
@@ -73,15 +79,14 @@ public class Profile_v2 extends AppCompatActivity {
         saveCh.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                String budget = budgetInput.getText().toString();
                 Toast.makeText(Profile_v2.this, "Modifications saved", Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(Profile_v2.this, MainActivity.class);
+                startActivity(intent);
             }
         });
 
-        // Budget
-        chCurr = (Button) findViewById(R.id.changeCurr);
-        budgetInput = (EditText) findViewById(R.id.budgetEdit);
-        symbol = (TextView) findViewById(R.id.currSymbol);
-        symbol.setText("£");
+
 
         chCurr.setOnClickListener(new View.OnClickListener() {
             @Override
