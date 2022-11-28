@@ -1,6 +1,7 @@
 package com.example.project;
 
 public class MyExpense {
+    //All variable set for a expense
     public String title;
     public String date;
     public double amount;

@@ -112,7 +112,7 @@ public class addExpense_v2 extends AppCompatActivity {
             }
         });
 
-        // save expense leads to the sound effect + saves the expense in memory
+        // Save expense leads to the sound effect + saves the expense in memory
         mediaPlayer = new MediaPlayer();
         mediaPlayer = MediaPlayer.create(this, R.raw.sound);
         saveExp = (Button) findViewById(R.id.saveExpense);

@@ -17,16 +17,22 @@ import android.util.Log;
 
 public class MainActivity extends AppCompatActivity {
 
+    //Button
     private Button toSpendingHistory;
     private Button toAddExpense;
     private Button toDetailledView;
     private ImageButton toProfileImgBtn;
+
+    //Progress Bar
     private ProgressBar ProBarBudget;
+
+    //TextView
     private TextView ProBarText;
     private TextView BudgetRemain;
     private TextView Expense;
     private TextView Remain;
 
+    //Expense
     private List<MyExpense> myExpenseList;
     private List<MyBudget> mBudget;
     double allexpense = 0;
@@ -38,28 +44,38 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        //Button
         toProfileImgBtn = (ImageButton) findViewById(R.id.goToProfileImageButton);
         toSpendingHistory= (Button) findViewById(R.id.goToHistoryButton);
         toAddExpense = (Button) findViewById(R.id.buttonAddExpense);
         toDetailledView = (Button) findViewById(R.id.buttonVd);
 
+        //ProgressBar
         ProBarBudget = (ProgressBar) findViewById(R.id.progressBarBudget);
         ProBarText = (TextView) findViewById(R.id.textProgressBar);
         ProBarText.setText("O.O%");
+
+        //Expense
         BudgetRemain = (TextView) findViewById(R.id.budgetremain);
         Expense = (TextView) findViewById(R.id.allexpense);
         Remain = (TextView) findViewById(R.id.remainBudget);
         myExpenseList = ExpenseBase.get().getExpenses();
 
-
+        //Calcul all the expense that the user did
         for(int i = 0; i < myExpenseList.size(); i++){
             allexpense += myExpenseList.get(i).getAmount();
         }
 
         Expense.setText(allexpense + "£");
+
+        //Percent of budget spent
         double var = allexpense/getBudget()*100;
+
+
         updateprogressbar(var);
         budgetremain(var);
+
+        //Calcul the remain buget
         double remaining = getBudget()-allexpense;
         Remain.setText(remaining + "£");
 
@@ -133,6 +149,7 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
+    //Get the budget set up by the user
     public double getBudget() {
         mBudget = BudgetBase.get().getBudgets();
         if(mBudget.size() > 0) {

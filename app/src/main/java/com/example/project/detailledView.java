@@ -39,7 +39,7 @@ public class detailledView extends AppCompatActivity {
     public ProgressBar otherPb;
     int counter = 0;
 
-    //Expense
+    // Expense by category
     private List<MyExpense> myExpenseList;
     double groceries_expense = 0.0;
     double gas_expense = 0.0;
@@ -71,6 +71,7 @@ public class detailledView extends AppCompatActivity {
         other = (TextView) findViewById(R.id.OtherQty);
         total = (TextView) findViewById(R.id.totalVal);
 
+        // Calcul all the expense by category
         myExpenseList = ExpenseBase.get().getExpenses();
         for(int i = 0; i < myExpenseList.size(); i++){
             if(myExpenseList.get(i).getCategory() == "Groceries"){
@@ -84,6 +85,7 @@ public class detailledView extends AppCompatActivity {
             }
         }
 
+        //Set all the Text with the current expense of the category
         grocery.setText(String.valueOf(groceries_expense));
         gas.setText(String.valueOf(gas_expense));
         outgoing.setText(String.valueOf(outgoing_expense));
@@ -122,8 +124,9 @@ public class detailledView extends AppCompatActivity {
         }
     }
 
-    public double getTotal(double groc, double car, double popcorn, double internet) {
-        return groc+car+popcorn+internet;
+    //Calculation of the total expense
+    public double getTotal(double groc, double car, double popcorn, double other) {
+        return groc+car+popcorn+other;
     }
 
     public double getAmount(TextView txtview) {
@@ -131,6 +134,7 @@ public class detailledView extends AppCompatActivity {
         return Double.parseDouble(txt);
     }
 
+    //Calculation of the percent in relation of the total spent
     public double getPercentage(TextView txtview, double total) {
         double amount = getAmount(txtview);
         double percentage = (amount/total)*100;
