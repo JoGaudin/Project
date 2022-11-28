@@ -36,11 +36,8 @@ public class Profile_v2 extends AppCompatActivity {
     public String[] frequencies =  {"Daily","Weekly","Monthly","Customize"};
     public ArrayAdapter<String> adapterItems;
 
-    // Other buttons
+    // Save Button
     public Button saveCh;
-
-    //Budget
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -60,12 +57,6 @@ public class Profile_v2 extends AppCompatActivity {
         ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String> (this, R.layout.activity_simple_list_view, R.id.test, categories_profile);
         listView.setAdapter(arrayAdapter);
 
-        // Budget
-        chCurr = (Button) findViewById(R.id.changeCurr);
-        budgetInput = (EditText) findViewById(R.id.budgetEdit);
-        symbol = (TextView) findViewById(R.id.currSymbol);
-        symbol.setText("£");
-
         // Adding a category when clicking the "Add Category Button" by going to the addCategory activity
         addCat = (Button) findViewById((R.id.addCategory2));
         addCat.setOnClickListener(new View.OnClickListener() {
@@ -78,9 +69,29 @@ public class Profile_v2 extends AppCompatActivity {
             }
         });
 
-        // Other buttons
-        saveCh = (Button) findViewById(R.id.saveButton2);
+        // Budget management
+        chCurr = (Button) findViewById(R.id.changeCurr);
+        budgetInput = (EditText) findViewById(R.id.budgetEdit);
+        symbol = (TextView) findViewById(R.id.currSymbol);
+        symbol.setText("£");
+        budgetInput.setText(String.valueOf(getBudget()));
 
+        // Change the currency
+        chCurr.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String editTextVal = budgetInput.getText().toString();
+                if(editTextVal.isEmpty()) {
+                    Toast.makeText(getApplicationContext(), "Please enter a budget value", Toast.LENGTH_LONG).show();
+                }
+                else {
+                    switchCurrency(editTextVal);
+                }
+            }
+        });
+
+        // Saving button
+        saveCh = (Button) findViewById(R.id.saveButton2);
         mBudgets = BudgetBase.get().getBudgets();
         saveCh.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -94,20 +105,6 @@ public class Profile_v2 extends AppCompatActivity {
             }
         });
 
-
-
-        chCurr.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                String editTextVal = budgetInput.getText().toString();
-                if(editTextVal.isEmpty()) {
-                    Toast.makeText(getApplicationContext(), "Please enter a budget value", Toast.LENGTH_LONG).show();
-                }
-                else {
-                    switchCurrency(editTextVal);
-                }
-            }
-        });
     }
 
     public double convertToEuros(double poundVal){
@@ -147,5 +144,14 @@ public class Profile_v2 extends AppCompatActivity {
         if(extras != null) {
             categories_profile = extras.getStringArray("fromAddCat");
         }
+    }
+
+    // Getting the budget value to keep it updated if needed
+    public double getBudget() {
+        mBudgets = BudgetBase.get().getBudgets();
+        if(mBudgets.size() > 0) {
+            return mBudgets.get(mBudgets.size()-1).getAmount();
+        }
+        return 0.0;
     }
 }

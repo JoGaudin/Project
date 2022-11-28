@@ -1,8 +1,6 @@
 package com.example.project;
 
 import static java.lang.Double.parseDouble;
-import static java.lang.Double.valueOf;
-
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -75,6 +73,7 @@ public class addExpense_v2 extends AppCompatActivity {
         symbol = (TextView) findViewById(R.id.currSymbol2);
         symbol.setText("£");
 
+        // Change currency
         chCurr.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -94,7 +93,7 @@ public class addExpense_v2 extends AppCompatActivity {
         ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String> (this, R.layout.activity_simple_list_view, R.id.test, categories_expense);
         listView.setAdapter(arrayAdapter);
 
-        // Happens when clicking on a category
+        // To point a specific category
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int position, long id) {
@@ -113,7 +112,7 @@ public class addExpense_v2 extends AppCompatActivity {
             }
         });
 
-        // save expense leads to the sound effect
+        // save expense leads to the sound effect + saves the expense in memory
         mediaPlayer = new MediaPlayer();
         mediaPlayer = MediaPlayer.create(this, R.raw.sound);
         saveExp = (Button) findViewById(R.id.saveExpense);
@@ -129,7 +128,6 @@ public class addExpense_v2 extends AppCompatActivity {
                 String catVal = listItem;
                 newExpense = new MyExpense(expTitleVal, dateTimeVal, amountVal, currencyVal, catVal);
                 mExpenses.add(newExpense);
-                Log.e("AAAAAA", String.valueOf(mExpenses.get(0).getAmount()));
                 Toast.makeText(getApplicationContext(), "Expense saved", Toast.LENGTH_LONG).show();
                 Intent intent = new Intent(addExpense_v2.this, MainActivity.class);
                 startActivity(intent);
@@ -137,6 +135,7 @@ public class addExpense_v2 extends AppCompatActivity {
         });
     }
 
+    // Sound effect when adding an expense
     public void startSound() {
         if(mediaPlayer != null) {
             mediaPlayer.start();

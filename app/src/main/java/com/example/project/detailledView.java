@@ -54,8 +54,8 @@ public class detailledView extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_detailled_view);
 
+        // Button to go back home
         returnButton = (Button) findViewById(R.id.returnButton);
-
         returnButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -64,6 +64,7 @@ public class detailledView extends AppCompatActivity {
             }
         });
 
+        // Updating the values according to the expenses
         grocery = (TextView) findViewById(R.id.groceriesQty);
         gas = (TextView) findViewById(R.id.carQty);
         outgoing = (TextView) findViewById(R.id.popcornQty);
@@ -102,7 +103,7 @@ public class detailledView extends AppCompatActivity {
         setPercentage(outgoingPct,outgoing,total_value);
         setPercentage(otherPct,other,total_value);
 
-        // Progress bars
+        // Progress bars updating
         grosPb = (ProgressBar)findViewById(R.id.groceryPb);
         gasPb = (ProgressBar)findViewById(R.id.carPb);
         outgoingPb = (ProgressBar)findViewById(R.id.popcornPb);
@@ -137,35 +138,13 @@ public class detailledView extends AppCompatActivity {
     }
 
     public void setPercentage(TextView pct, TextView txtview, double total) {
-        String percentage = String.valueOf(round.format(getPercentage(txtview,total)));
+        String percentage = "";
+        if(Double.isNaN(getPercentage(txtview,total))){
+            percentage = "0.0";
+        } else {
+            percentage = String.valueOf(round.format(getPercentage(txtview,total)));
+        }
         percentage += "%";
         pct.setText(percentage);
     }
-
-    /*
-    public void setProgressBar(ProgressBar pb, int val) {
-        Timer t = new Timer();
-        TimerTask tt = new TimerTask() {
-            @Override
-            public void run()
-            {
-                counter++;
-                pb.setProgress(counter);
-                if(counter == val)
-                    t.cancel();
-            }
-        };
-        t.schedule(tt,0,50);
-    }
-
-    /*
-    public void setWidth(double total, TextView view) {
-
-
-        ViewGroup.LayoutParams layoutParams = view.getLayoutParams();
-        layoutParams.width = newWidth;
-        view.setLayoutParams(layoutParams);
-
-    }
-    */
 }

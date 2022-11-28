@@ -63,7 +63,7 @@ public class MainActivity extends AppCompatActivity {
         double remaining = getBudget()-allexpense;
         Remain.setText(remaining + "£");
 
-
+        // Buttons leading to other pages
         toProfileImgBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) { openProfileActivity();}

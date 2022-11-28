@@ -26,11 +26,11 @@ public class spendingHistory extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_spending_history);
 
+        // Displaying the expenses history with a listview
         spendHist = (ListView) findViewById(R.id.expenses_list);
         mExpenses = ExpenseBase.get().getExpenses();
         ExpenseListAdapter adapter = new ExpenseListAdapter(this, R.layout.expense_list_items, mExpenses);
         spendHist.setAdapter(adapter);
-
     }
 
 }
