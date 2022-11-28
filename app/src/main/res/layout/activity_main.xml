@@ -59,17 +59,21 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.023" />
 
-    <ImageButton
-        android:id="@+id/goToProfileImageButton"
-        android:layout_width="105dp"
-        android:layout_height="97dp"
+    <ProgressBar
+        android:id="@+id/progressbarGroceries"
+        style="?android:progressBarStyleHorizontal"
+        android:layout_width="300dp"
+        android:layout_height="300dp"
+        android:progress="80"
+        android:progressDrawable="@drawable/circle"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.947"
+        app:layout_constraintHorizontal_bias="0.495"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.025"
-        tools:srcCompat="@tools:sample/avatars" />
+        app:layout_constraintVertical_bias="0.498" />
+
+
 
     <Button
         android:id="@+id/buttonAddExpense"
@@ -84,20 +88,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.407" />
-
-    <ProgressBar
-        android:id="@+id/progressbarGroceries"
-        style="?android:progressBarStyleHorizontal"
-        android:layout_width="300dp"
-        android:layout_height="300dp"
-        android:progress="80"
-        android:progressDrawable="@drawable/circle"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.495"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.498" />
 
     <Button
         android:id="@+id/buttonVd"
@@ -198,5 +188,19 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.858" />
+
+    <ImageButton
+        android:id="@+id/goToProfileImageButton"
+        android:layout_width="92dp"
+        android:layout_height="89dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.945"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.044"
+        app:srcCompat="@drawable/user_v2"
+        android:scaleType="fitCenter"/>
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
