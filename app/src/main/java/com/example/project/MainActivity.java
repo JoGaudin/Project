@@ -10,6 +10,8 @@ import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ProgressBar;
 import android.widget.TextView;
+
+import java.text.DecimalFormat;
 import java.util.List;
 import android.util.Log;
 
@@ -27,6 +29,8 @@ public class MainActivity extends AppCompatActivity {
     private List<MyExpense> myExpenseList;
     private List<MyBudget> mBudget;
     double allexpense = 0;
+    public DecimalFormat round = new DecimalFormat("0.0");
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,17 +54,11 @@ public class MainActivity extends AppCompatActivity {
         for(int i = 0; i < myExpenseList.size(); i++){
             allexpense += myExpenseList.get(i).getAmount();
         }
-        Expense.setText(allexpense + "£");
-
-        Log.i("ZZZZZZZ",String.valueOf(getBudget()));
-        if(getBudget() == 0.0) {
-            ProBarText.setText("0.0%");
-        }
-
+        double remaining = getBudget()-allexpense;
+        Expense.setText(remaining + "£");
         double var = allexpense/getBudget()*100;
         updateprogressbar(var);
         budgetremain(var);
-
 
         toProfileImgBtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -85,6 +83,7 @@ public class MainActivity extends AppCompatActivity {
                 openDetailedView();
             }
         });
+
     }
 
     public void openProfileActivity(){
@@ -102,14 +101,14 @@ public class MainActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
-    public void calculbudget(){
-
-    }
-
     //Update the progressbar according to the percentage of budget spent
     public void updateprogressbar(double percent){
+        if(Double.isNaN(percent)){
+            percent = 0.0;
+        }
         ProBarBudget.setProgress((int) percent);
-        ProBarText.setText(percent + "%");
+        String roundedPercent = String.valueOf(round.format(percent));
+        ProBarText.setText(roundedPercent + "%");
     }
 
     //Display a text according to the percentage of budget spent
@@ -132,9 +131,9 @@ public class MainActivity extends AppCompatActivity {
 
     public double getBudget() {
         mBudget = BudgetBase.get().getBudgets();
-        if(mBudget.size() <= 0) {
-            return 0.0;
+        if(mBudget.size() > 0) {
+            return mBudget.get(mBudget.size()-1).getAmount();
         }
-        return mBudget.get(mBudget.size()-1).getAmount();
+        return 0.0;
     }
 }
