@@ -129,6 +129,7 @@ public class addExpense_v2 extends AppCompatActivity {
                 String catVal = listItem;
                 newExpense = new MyExpense(expTitleVal, dateTimeVal, amountVal, currencyVal, catVal);
                 mExpenses.add(newExpense);
+                Log.e("AAAAAA", String.valueOf(mExpenses.get(0).getAmount()));
                 Toast.makeText(getApplicationContext(), "Expense saved", Toast.LENGTH_LONG).show();
                 Intent intent = new Intent(addExpense_v2.this, MainActivity.class);
                 startActivity(intent);

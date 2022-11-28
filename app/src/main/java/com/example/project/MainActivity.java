@@ -14,7 +14,7 @@ import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 
-    private Button toProfileBtn;
+    private Button toSpendingHistory;
     private Button toAddExpense;
     private Button toDetailledView;
     private ImageButton toProfileImgBtn;
@@ -30,7 +30,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         toProfileImgBtn = (ImageButton) findViewById(R.id.goToProfileImageButton);
-        toProfileBtn = (Button) findViewById(R.id.goToProfileButton);
+        toSpendingHistory= (Button) findViewById(R.id.goToHistoryButton);
         toAddExpense = (Button) findViewById(R.id.buttonAddExpense);
         toDetailledView = (Button) findViewById(R.id.buttonVd);
 
@@ -48,10 +48,11 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) { openProfileActivity();}
         });
-        toProfileBtn.setOnClickListener(new View.OnClickListener() {
+        toSpendingHistory.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                openProfileActivity();
+                Intent intent = new Intent(MainActivity.this, spendingHistory.class);
+                startActivity(intent);
             }
         });
         toAddExpense.setOnClickListener(new View.OnClickListener() {

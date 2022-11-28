@@ -8,6 +8,7 @@
     tools:context=".MainActivity">
 
     <TextView
+        android:textColor="@color/black"
         android:id="@+id/WelcomeText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -21,6 +22,7 @@
         app:layout_constraintVertical_bias="0.061" />
 
     <TextView
+        android:textColor="@color/black"
         android:id="@+id/textView2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -34,6 +36,7 @@
         app:layout_constraintVertical_bias="0.235" />
 
     <TextView
+        android:textColor="@color/black"
         android:id="@+id/remainBudget"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -47,18 +50,20 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.17" />
 
+
     <Button
-        android:id="@+id/goToProfileButton"
+        android:id="@+id/goToHistoryButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Go to Profile"
+        android:text="Go to history"
+        android:textColor="@color/bg"
+        android:backgroundTint="@color/white"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.018"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintHorizontal_bias="0.338"
+        app:layout_constraintStart_toEndOf="@+id/buttonVd"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.023" />
-
+        app:layout_constraintVertical_bias="0.959" />
 
     <ProgressBar
         android:id="@+id/progressBarBudget"
@@ -98,9 +103,10 @@
         android:textColor="@color/bg"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.216"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.994" />
+        app:layout_constraintVertical_bias="0.959" />
 
     <ImageButton
         android:id="@+id/goToProfileImageButton"
@@ -135,6 +141,7 @@
         android:id="@+id/textProgressBar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:textColor="@color/black"
         android:text="0%"
         android:textSize="100px"
         android:textStyle="bold"
