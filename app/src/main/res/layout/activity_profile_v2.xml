@@ -52,7 +52,6 @@
             android:layout_width="24dp"
             android:layout_height="31dp"
             android:fontFamily="sans-serif-medium"
-            android:text="£"
             android:textColor="@color/black"
             android:textSize="50px"
             app:layout_constraintBottom_toBottomOf="parent"

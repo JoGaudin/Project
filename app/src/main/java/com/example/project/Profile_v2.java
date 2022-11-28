@@ -44,7 +44,6 @@ public class Profile_v2 extends AppCompatActivity {
 
         // Frequencies Dropdown Menu
         spinner = findViewById(R.id.spiinner);
-
         adapterItems = new ArrayAdapter<String>(Profile_v2.this,android.R.layout.simple_spinner_item,frequencies);
         adapterItems.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinner.setAdapter(adapterItems);
@@ -63,6 +62,7 @@ public class Profile_v2 extends AppCompatActivity {
             public void onClick(View view) {
                 // Getting the categories array to the other activity
                 Intent intent = new Intent(Profile_v2.this, addCategory.class);
+                intent.putExtra("from Profile", true);
                 startActivity(intent);
             }
         });
@@ -81,6 +81,7 @@ public class Profile_v2 extends AppCompatActivity {
         chCurr = (Button) findViewById(R.id.changeCurr);
         budgetInput = (EditText) findViewById(R.id.budgetEdit);
         symbol = (TextView) findViewById(R.id.currSymbol);
+        symbol.setText("£");
 
         chCurr.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -89,22 +90,8 @@ public class Profile_v2 extends AppCompatActivity {
                 if(editTextVal.isEmpty()) {
                     Toast.makeText(getApplicationContext(), "Please enter a budget value", Toast.LENGTH_LONG).show();
                 }
-                else if(chCurr.getText() == "Switch to €") {
-                    // Changing the value inside the editText
-                    double intEditText = Double.parseDouble(editTextVal);
-                    double convertedVal = convertToEuros(intEditText);
-                    String resString = String.valueOf(round.format(convertedVal));
-                    budgetInput.setText(resString);
-                    // Changing the button value from € to £ and the symbol too
-                    symbol.setText("€");
-                    chCurr.setText("Switch to £");
-                } else {
-                    double intEditText = Double.parseDouble(editTextVal);
-                    double convertedVal = convertToPounds(intEditText);
-                    String resString = String.valueOf(round.format(convertedVal));
-                    budgetInput.setText(resString);
-                    symbol.setText("£");
-                    chCurr.setText("Switch to €");
+                else {
+                    switchCurrency(editTextVal);
                 }
             }
         });
@@ -120,6 +107,26 @@ public class Profile_v2 extends AppCompatActivity {
         double resPound;
         resPound = euroVal/1.16;
         return resPound;
+    }
+
+    public void switchCurrency(String editTextVal) {
+        if(chCurr.getText() == "Switch to €") {
+            // Changing the button value from € to £ and the symbol too
+            symbol.setText("€");
+            chCurr.setText("Switch to £");
+            // Changing the value inside the editText
+            double intEditText = Double.parseDouble(editTextVal);
+            double convertedVal = convertToEuros(intEditText);
+            String resString = String.valueOf(round.format(convertedVal));
+            budgetInput.setText(resString);
+        } else {
+            symbol.setText("£");
+            chCurr.setText("Switch to €");
+            double intEditText = Double.parseDouble(editTextVal);
+            double convertedVal = convertToPounds(intEditText);
+            String resString = String.valueOf(round.format(convertedVal));
+            budgetInput.setText(resString);
+        }
     }
 
     public void updateCategories() {
