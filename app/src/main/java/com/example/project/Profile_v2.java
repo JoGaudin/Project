@@ -14,6 +14,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import java.text.DecimalFormat;
+import java.util.List;
 
 public class Profile_v2 extends AppCompatActivity {
 
@@ -22,6 +23,8 @@ public class Profile_v2 extends AppCompatActivity {
     public EditText budgetInput;
     public DecimalFormat round = new DecimalFormat("0.0");
     public TextView symbol;
+    private List<MyBudget> mBudgets;
+    public MyBudget newBudget;
 
     // Categories list view
     public ListView listView;
@@ -78,10 +81,13 @@ public class Profile_v2 extends AppCompatActivity {
         // Other buttons
         saveCh = (Button) findViewById(R.id.saveButton2);
 
+        mBudgets = BudgetBase.get().getBudgets();
         saveCh.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 double budgetVal = Double.parseDouble(budgetInput.getText().toString());
+                newBudget = new MyBudget(budgetVal, String.valueOf(symbol.getText()));
+                mBudgets.add(newBudget);
                 Toast.makeText(Profile_v2.this, "Modifications saved", Toast.LENGTH_SHORT).show();
                 Intent intent = new Intent(Profile_v2.this, MainActivity.class);
                 startActivity(intent);

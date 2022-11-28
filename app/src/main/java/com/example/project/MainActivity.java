@@ -22,12 +22,11 @@ public class MainActivity extends AppCompatActivity {
     private ProgressBar ProBarBudget;
     private TextView ProBarText;
     private TextView BudgetRemain;
-    private TextView Remain;
     private TextView Expense;
 
     private List<MyExpense> myExpenseList;
+    private List<MyBudget> mBudget;
     double allexpense = 0;
-    double remain = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,9 +40,9 @@ public class MainActivity extends AppCompatActivity {
 
         ProBarBudget = (ProgressBar) findViewById(R.id.progressBarBudget);
         ProBarText = (TextView) findViewById(R.id.textProgressBar);
+        ProBarText.setText("O.O%");
         BudgetRemain = (TextView) findViewById(R.id.budgetremain);
-        Remain = (TextView) findViewById(R.id.remainBudget);
-        Expense = (TextView) findViewById(R.id.allexpense);
+        Expense = (TextView) findViewById(R.id.remainBudget);
 
         myExpenseList = ExpenseBase.get().getExpenses();
 
@@ -52,12 +51,15 @@ public class MainActivity extends AppCompatActivity {
             allexpense += myExpenseList.get(i).getAmount();
         }
         Expense.setText(allexpense + "£");
-        Remain.setText(remain + "£");
-        double var = 80;
+
+        Log.i("ZZZZZZZ",String.valueOf(getBudget()));
+        if(getBudget() == 0.0) {
+            ProBarText.setText("0.0%");
+        }
+
+        double var = allexpense/getBudget()*100;
         updateprogressbar(var);
         budgetremain(var);
-
-
 
 
         toProfileImgBtn.setOnClickListener(new View.OnClickListener() {
@@ -116,13 +118,23 @@ public class MainActivity extends AppCompatActivity {
         if((int) percent <= 50){
             BudgetRemain.setText("You have used less than 50% of your budget");
             BudgetRemain.setTextColor(Color.GREEN);
+            BudgetRemain.setTextSize(20);
         }else if((int) percent > 50 && (int) percent < 75){
             BudgetRemain.setText("You have used more than 50% but less than 75% of your budget");
             BudgetRemain.setTextColor(Color.YELLOW);
-            BudgetRemain.setTextSize(22);
+            BudgetRemain.setTextSize(20);
         }else{
             BudgetRemain.setText("You have used more than 75% of your budget, be careful !");
             BudgetRemain.setTextColor(Color.RED);
+            BudgetRemain.setTextSize(20);
         }
+    }
+
+    public double getBudget() {
+        mBudget = BudgetBase.get().getBudgets();
+        if(mBudget.size() <= 0) {
+            return 0.0;
+        }
+        return mBudget.get(mBudget.size()-1).getAmount();
     }
 }
