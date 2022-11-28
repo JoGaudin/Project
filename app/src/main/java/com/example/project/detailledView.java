@@ -2,9 +2,12 @@ package com.example.project;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
+import android.widget.Button;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
@@ -19,7 +22,7 @@ public class detailledView extends AppCompatActivity {
     public TextView grocery;
     public TextView gas;
     public TextView outgoing;
-    public TextView net;
+    public TextView other;
     public TextView total;
     public DecimalFormat round = new DecimalFormat("0.0");
 
@@ -27,60 +30,94 @@ public class detailledView extends AppCompatActivity {
     public TextView grosPct;
     public TextView gasPct;
     public TextView outgoingPct;
-    public TextView netPct;
+    public TextView otherPct;
 
     // Progress Bars
     public ProgressBar grosPb;
     public ProgressBar gasPb;
     public ProgressBar outgoingPb;
-    public ProgressBar netPb;
+    public ProgressBar otherPb;
     int counter = 0;
 
+    //Expense
     private List<MyExpense> myExpenseList;
+    double groceries_expense = 0.0;
+    double gas_expense = 0.0;
+    double outgoing_expense = 0.0;
+    double other_expense = 0.0;
+
+    //Return
+    public Button returnButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_detailled_view);
 
+        returnButton = (Button) findViewById(R.id.returnButton);
+
+        returnButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(detailledView.this, MainActivity.class);
+                startActivity(intent);
+            }
+        });
+
         grocery = (TextView) findViewById(R.id.groceriesQty);
         gas = (TextView) findViewById(R.id.carQty);
         outgoing = (TextView) findViewById(R.id.popcornQty);
-        net = (TextView) findViewById(R.id.internetQty);
+        other = (TextView) findViewById(R.id.OtherQty);
         total = (TextView) findViewById(R.id.totalVal);
 
         myExpenseList = ExpenseBase.get().getExpenses();
+        for(int i = 0; i < myExpenseList.size(); i++){
+            if(myExpenseList.get(i).getCategory() == "Groceries"){
+                groceries_expense += myExpenseList.get(i).getAmount();
+            }else if(myExpenseList.get(i).getCategory() == "Gas and Fuel"){
+                gas_expense += myExpenseList.get(i).getAmount();
+            }else if(myExpenseList.get(i).getCategory() == "Outgoing expenses"){
+                outgoing_expense += myExpenseList.get(i).getAmount();
+            }else{
+                other_expense += myExpenseList.get(i).getAmount();
+            }
+        }
 
-        double total_value = getTotal(getAmount(grocery),getAmount(gas),getAmount(outgoing),getAmount(net));
+        grocery.setText(String.valueOf(groceries_expense));
+        gas.setText(String.valueOf(gas_expense));
+        outgoing.setText(String.valueOf(outgoing_expense));
+        other.setText(String.valueOf(other_expense));
+
+        double total_value = getTotal(getAmount(grocery),getAmount(gas),getAmount(outgoing),getAmount(other));
         total.setText(String.valueOf(round.format(total_value)));
 
         // Setting the percentages
         grosPct = (TextView)findViewById(R.id.groceriesPct);
         gasPct = (TextView) findViewById(R.id.carPct);
         outgoingPct = (TextView) findViewById(R.id.popcornPct);
-        netPct = (TextView) findViewById(R.id.internetPct);
+        otherPct = (TextView) findViewById(R.id.otherPct);
 
         setPercentage(grosPct,grocery,total_value);
         setPercentage(gasPct,gas,total_value);
         setPercentage(outgoingPct,outgoing,total_value);
-        setPercentage(netPct,net,total_value);
+        setPercentage(otherPct,other,total_value);
 
         // Progress bars
         grosPb = (ProgressBar)findViewById(R.id.groceryPb);
         gasPb = (ProgressBar)findViewById(R.id.carPb);
         outgoingPb = (ProgressBar)findViewById(R.id.popcornPb);
-        netPb = (ProgressBar)findViewById(R.id.internetPb);
+        otherPb = (ProgressBar)findViewById(R.id.otherPb);
 
         int grosVal = ((int) getPercentage(grocery, total_value));
         int gasVal = ((int) getPercentage(gas, total_value));
         int outgoingVal = ((int) getPercentage(outgoing, total_value));
-        int netVal = ((int) getPercentage(net, total_value));
+        int otherVal = ((int) getPercentage(other, total_value));
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
             grosPb.setProgress(grosVal, true);
             gasPb.setProgress(gasVal, true);
             outgoingPb.setProgress(outgoingVal, true);
-            netPb.setProgress(netVal, true);
+            otherPb.setProgress(otherVal, true);
         }
     }
 

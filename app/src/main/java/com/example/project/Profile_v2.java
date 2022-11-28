@@ -26,7 +26,7 @@ public class Profile_v2 extends AppCompatActivity {
     // Categories list view
     public ListView listView;
     public Button addCat;
-    public String[] categories_profile = {"Groceries", "Gas and Fuel", "Outgoing expenses", "Internet"};
+    public String[] categories_profile = {"Groceries", "Gas and Fuel", "Outgoing expenses", "Other"};
 
     // Frequencies Dropdown Menu
     public Spinner spinner;

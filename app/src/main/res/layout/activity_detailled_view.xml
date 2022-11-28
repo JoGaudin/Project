@@ -21,7 +21,7 @@
         app:layout_constraintVertical_bias="0.201" />
 
     <ProgressBar
-        android:id="@+id/internetPb"
+        android:id="@+id/otherPb"
         style="?android:attr/progressBarStyleHorizontal"
         android:layout_width="307dp"
         android:layout_height="25dp"
@@ -60,7 +60,7 @@
         app:layout_constraintVertical_bias="0.439" />
 
     <TextView
-        android:id="@+id/internetPct"
+        android:id="@+id/otherPct"
         android:layout_width="70dp"
         android:layout_height="28dp"
         android:background="@drawable/inputbox_orange"
@@ -264,7 +264,7 @@
         app:layout_constraintVertical_bias="0.318" />
 
     <TextView
-        android:id="@+id/internetQty"
+        android:id="@+id/OtherQty"
         android:layout_width="80dp"
         android:layout_height="28dp"
         android:fontFamily="sans-serif-medium"
@@ -313,11 +313,11 @@
         app:layout_constraintVertical_bias="0.269" />
 
     <TextView
-        android:id="@+id/internetText"
+        android:id="@+id/OtherText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="sans-serif-medium"
-        android:text="Internet"
+        android:text="Other"
         android:textColor="@color/black"
         android:textSize="50px"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -350,6 +350,20 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.643" />
+
+    <Button
+        android:id="@+id/returnButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Home Page"
+        android:textColor="@color/bg"
+        android:backgroundTint="@color/white"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.488"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.976" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
