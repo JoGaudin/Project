@@ -10,6 +10,7 @@ import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ProgressBar;
 import android.widget.TextView;
+import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -20,6 +21,8 @@ public class MainActivity extends AppCompatActivity {
     private ProgressBar ProBarBudget;
     private TextView ProBarText;
     private TextView BudgetRemain;
+
+    private List<MyExpense> myExpenseList;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,6 +37,7 @@ public class MainActivity extends AppCompatActivity {
         ProBarBudget = (ProgressBar) findViewById(R.id.progressBarBudget);
         ProBarText = (TextView) findViewById(R.id.textProgressBar);
         BudgetRemain = (TextView) findViewById(R.id.budgetremain);
+        myExpenseList = ExpenseBase.get().getExpenses();
         double var = 80;
         updateprogressbar(var);
         budgetremain(var);
